@@ -1,0 +1,11 @@
+{
+  "name": "transporter-module",
+  "version": "1.0.0",
+  "description": "Module to handle transporter subsystem",
+  "main": "transporter.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "author": "Brian Philemon",
+  "license": "MIT"
+}

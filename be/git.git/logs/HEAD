@@ -1,0 +1,14 @@
+0000000000000000000000000000000000000000 8af1382136d0c621e062f6f36c68a7f349251d97 brianphil <brianphilemon@gmail.com> 1689162911 +0300	commit (initial): initail commit
+8af1382136d0c621e062f6f36c68a7f349251d97 3a182ec32fcb8aed065162b556de35ea71388fb7 brianphil <brianphilemon@gmail.com> 1689337766 +0300	commit: added customers api
+3a182ec32fcb8aed065162b556de35ea71388fb7 e1bb45df118eb4f4862750dd06df06257e76a737 brianphil <brianphilemon@gmail.com> 1690357675 +0300	commit: update
+e1bb45df118eb4f4862750dd06df06257e76a737 935b2eed4b2660347c9bba4053fdfb908c482609 brianphil <brianphilemon@gmail.com> 1690357874 +0300	commit: updated git ignore
+935b2eed4b2660347c9bba4053fdfb908c482609 21173ee05dfe112406817c7cb8413fdb26384ce1 brianphil <brianphilemon@gmail.com> 1690358152 +0300	commit: modified git params
+21173ee05dfe112406817c7cb8413fdb26384ce1 cfa7fdc51b3926272b23e7b547ee1aac089c5a31 brianphil <brianphilemon@gmail.com> 1692273258 +0300	commit: added more thing
+cfa7fdc51b3926272b23e7b547ee1aac089c5a31 2cdbc98759d14e43f80b97983fdbd626c4b30793 brianphil <brianphilemon@gmail.com> 1692273627 +0300	revert: Revert "added more thing"
+2cdbc98759d14e43f80b97983fdbd626c4b30793 ff37e0a105be37b9564c96ec29090f727ed0e476 brianphil <brianphilemon@gmail.com> 1692273853 +0300	cherry-pick: added more thing
+ff37e0a105be37b9564c96ec29090f727ed0e476 550e9bd1d770bd6d58273b67d7e39ed8f1b54496 brianphil <brianphilemon@gmail.com> 1692273947 +0300	commit: restore files
+550e9bd1d770bd6d58273b67d7e39ed8f1b54496 267985725211f1297d04f05f223282e111344c6f brianphil <brianphilemon@gmail.com> 1692274409 +0300	commit: Removed node_modules
+267985725211f1297d04f05f223282e111344c6f 853085198a8fccf7302e7e8e1908f0121b417d70 brianphil <brianphilemon@gmail.com> 1692274832 +0300	commit: Removed all node_modules
+853085198a8fccf7302e7e8e1908f0121b417d70 54c069e88edc70e4feed102d40fafe9ff9118d69 brianphil <brianphilemon@gmail.com> 1692274947 +0300	commit: update the node modules removal
+54c069e88edc70e4feed102d40fafe9ff9118d69 efe1c7af9778409747a5df29e135a64aeef91e4c brianphil <brianphilemon@gmail.com> 1692716478 +0300	commit: restructured app
+efe1c7af9778409747a5df29e135a64aeef91e4c 46b64c3fac92c91638490bbd234f931adcbca888 brianphil <brianphilemon@gmail.com> 1692943953 +0300	commit: added integration features
