@@ -1,0 +1,44 @@
+form {
+  margin: 0 auto;
+  margin-top: 2rem;
+  display: grid;
+  max-width: 50vh;
+  grid-template-columns: repeat(1, auto);
+  padding: 1.5rem;
+  border: 0.2rem solid rgb(216, 214, 214);
+  border-radius: 0.2rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 200;
+  margin: 0.8rem;
+}
+
+.btn-modify > button {
+  padding: 0.8rem;
+  color: white;
+  border-bottom-right-radius: 1.2rem;
+}
+.edit {
+  background-color: rgb(15, 2, 99);
+  margin: 1.2rem;
+}
+
+.delete {
+  background-color: rgb(187, 2, 2);
+  margin: 1.2rem;
+}
+
+.delete:hover {
+  background-color: white;
+  color: rgb(187, 2, 2);
+  border: 1px solid rgb(187, 2, 2);
+  cursor: pointer;
+}
+.edit:hover {
+  background-color: white;
+  color: rgb(15, 2, 99);
+  border: 1px solid rgb(15, 2, 99);
+  cursor: pointer;
+}

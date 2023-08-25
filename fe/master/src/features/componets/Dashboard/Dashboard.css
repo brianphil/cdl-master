@@ -1,0 +1,62 @@
+.dashboard {
+  background-color: rgba(95, 158, 160, 0.2);
+  padding: 2rem;
+  height: 90vh;
+}
+
+.modules {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+.module {
+  margin: 2rem;
+  /* border-radius: 2rem; */
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  box-shadow: 5px 1px 15px 2px rgb(18, 18, 18);
+  min-height: 30vh;
+}
+
+.module-title {
+  font-size: 3rem;
+  font-weight: 200;
+  padding: 2rem;
+}
+.module-status-icon-on {
+  background-color: rgb(7, 249, 7);
+  box-shadow: 5px 1px 15px 2px rgb(7, 249, 7);
+}
+.module-status-icon-off {
+  background-color: rgb(249, 7, 7);
+  box-shadow: 5px 1px 15px 2px rgb(249, 7, 7);
+}
+
+.control-btn {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  margin: 0.7rem;
+}
+.btn {
+  color: white;
+  border-radius: 0.4rem;
+  padding: 1.2rem;
+  cursor: pointer;
+}
+.start-btn {
+  background-color: rgb(0, 0, 50);
+}
+.start-btn:hover {
+  background-color: rgb(0, 0, 50, 0.9);
+}
+.stop-btn {
+  background-color: rgb(50, 0, 0);
+}
+.stop-btn:hover {
+  background-color: rgb(50, 0, 0, 0.9);
+}
+.pause-btn {
+  background-color: rgb(150, 30, 0);
+}
+.pause-btn:hover {
+  background-color: rgb(150, 30, 0, 0.9);
+}

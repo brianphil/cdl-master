@@ -1,0 +1,32 @@
+form {
+  margin: 0 auto;
+  margin-top: 2rem;
+  display: grid;
+  max-width: 50vh;
+  grid-template-columns: repeat(1, auto);
+  padding: 1.5rem;
+  border: 0.2rem solid rgb(216, 214, 214);
+  border-radius: 0.2rem;
+}
+
+input {
+  padding: 1.2rem;
+  font-size: 1rem;
+  font-weight: 200;
+  margin: 0.8rem;
+}
+
+.btn-action {
+  padding: 1.2rem;
+  color: white;
+  background-color: darkblue;
+  border: 1px solid darkblue;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+}
+.btn-action:hover {
+  border: 1px solid darkblue;
+  color: darkblue;
+  background-color: white;
+  cursor: pointer;
+}

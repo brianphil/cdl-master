@@ -1,0 +1,22 @@
+.status {
+  margin-right: 2rem;
+  margin-left: auto;
+  border-radius: 100%;
+  max-width: 2rem;
+  max-height: 2rem;
+  min-width: 2rem;
+  min-height: 2rem;
+}
+.module-status {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+.desc {
+  margin: auto;
+  margin-top: 1rem;
+}
+.status-title {
+  font-size: 1.3rem;
+  margin-right: 0;
+  margin-left: auto;
+}

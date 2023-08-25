@@ -1,0 +1,15 @@
+.back {
+  padding: 0.5rem;
+  background-color: rgb(251, 49, 49);
+  color: white;
+  max-width: 20vh;
+  margin: 1.2rem auto;
+  border-bottom-left-radius: 0.7rem;
+}
+
+.back:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(251, 49, 49);
+  border: 1px solid rgb(251, 49, 49);
+  cursor: pointer;
+}
