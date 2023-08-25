@@ -17,6 +17,7 @@
   flex-direction: column;
   background-color: rgb(209, 206, 206);
   margin-top: 0.5rem;
+  padding: 1rem;
 }
 .order-list li {
   list-style-type: disc;
@@ -46,10 +47,6 @@
   font-weight: bold;
 }
 
-.btn-order {
-  padding: 0.6rem;
-  margin: 1rem;
-}
 .order-counter {
   font-size: 1rem;
   justify-content: space-between;
@@ -127,4 +124,26 @@
   width: 2rem;
   cursor: pointer;
   border-bottom-left-radius: 0.7rem;
+}
+
+.order-controls {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  padding: 0.4rem;
+}
+
+.btn-order {
+  padding: 0.6rem;
+  margin: auto;
+  width: 100%;
+  border-radius: 1.3rem;
+  cursor: pointer;
+}
+.btn-order:hover {
+  border: 1px solid rgb(37, 36, 36);
+}
+
+.cancel {
+  background-color: rgb(255, 0, 0);
+  color: rgb(255, 255, 255);
 }

@@ -1,17 +1,17 @@
 const Order = require("../model/Orders");
 const io = require("socket.io-client");
 let isConnected = false;
-const socket = io("http://localhost:5011");
-socket.on("connect", () => {
-  console.log("Established connection...");
-  socket.emit("order-requested", "Order requested");
-  isConnected = true;
-});
+
 const createOrder = async (req, res) => {
   const order = req.body;
   try {
+    const socket = io("http://localhost:5003");
     const insertOrder = new Order({ ...order });
     const insertedOrder = await insertOrder.save();
+    socket.on("connect", (s) => {
+      socket.emit("order-placed", insertedOrder);
+    });
+
     res.status(201).json(insertedOrder);
   } catch (e) {
     console.log(e.message);
@@ -20,9 +20,6 @@ const createOrder = async (req, res) => {
 };
 
 const getOrders = async (req, res) => {
-  if (isConnected) {
-    socket.emit("order-requested", "Order requested");
-  }
   const { id } = req.query;
   if (id) {
     try {

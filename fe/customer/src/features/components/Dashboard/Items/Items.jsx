@@ -1,12 +1,13 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import "./Items.css";
-import { ITEMS_URL } from "../../../../config/config";
+import { ITEMS_URL, ORDERS_URL } from "../../../../config/config";
 const Items = () => {
   const [items, setItems] = useState([]);
   const [showCart, setShowCart] = useState(false);
   const [selectedItem, setSelectedItems] = useState([]);
-  const [qnty, setQnty] = useState(1);
+  const [isPlacing, setIsPlacing] = useState(false);
+  const [orderFlag, setOrderFlag] = useState([]);
   const toggleCart = (e) => {
     e.preventDefault();
 
@@ -15,7 +16,14 @@ const Items = () => {
   const fetchItems = async () => {
     try {
       const _items = await axios.get(ITEMS_URL);
-      setItems(_items.data);
+      const newList = [];
+      _items.data.map((i) => {
+        newList.push({
+          ...i,
+          qnty: 1,
+        });
+      });
+      setItems(newList);
     } catch (e) {}
   };
 
@@ -31,15 +39,34 @@ const Items = () => {
   const getSubtotal = (items) => {
     let total = 0;
     items.map((item) => {
-      let totalPrice = item.price * qnty;
+      let totalPrice = item.price * item.qnty;
       total += totalPrice;
     });
     return total;
   };
-  const handleQuantity = (e) => {
+  const handleQuantity = (e, item) => {
     e.preventDefault();
+    return;
+  };
 
-    setQnty(e.target.value);
+  const placeOrder = async (e, order) => {
+    e.preventDefault();
+    if (order.length <= 0) return;
+    setIsPlacing(true);
+    const payload = {
+      items: [...order],
+      placementStatus: false,
+      supplierID: "S20",
+    };
+    const place = await axios.post(ORDERS_URL, payload);
+    if (place) {
+      setIsPlacing(false);
+      setOrderFlag(orderFlag.push(order));
+    }
+  };
+  const resetOrderCart = () => {
+    setSelectedItems([]);
+    setOrderFlag([]);
   };
   useEffect(() => {
     fetchItems();
@@ -118,7 +145,7 @@ const Items = () => {
                               onChange={(e) => handleQuantity(e, item)}
                               type="number"
                               min={0}
-                              value={qnty}
+                              value={item.qnty}
                             />
                           </td>
                           <td>
@@ -144,7 +171,33 @@ const Items = () => {
               )}
             </tbody>
           </table>
-          <button className="btn-order">Place Order</button>
+          <div className="order-controls">
+            <button
+              onClick={(e) => placeOrder(e, selectedItem)}
+              className="btn-order"
+              disabled={orderFlag.length > 0 ? "disabled" : ""}
+              style={{ display: selectedItem.length === 0 ? "none" : "block" }}
+            >
+              Place Order
+            </button>
+            <button
+              style={{ display: selectedItem.length === 0 ? "none" : "block" }}
+              className="btn-order cancel"
+              onClick={resetOrderCart}
+            >
+              Cancel
+            </button>
+          </div>
+          <h3
+            style={{
+              color: "green",
+              fontWeight: "300",
+              textAlign: "center",
+              display: orderFlag.length === 0 ? "none" : "block",
+            }}
+          >
+            {isPlacing ? "Placing Order..." : "Order Placed!"}
+          </h3>
         </div>
       </div>
     </div>

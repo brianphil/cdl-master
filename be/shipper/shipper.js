@@ -3,7 +3,7 @@ const path = require("path");
 const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
-
+const { Server } = require("socket.io");
 const PORT = process.env.PORT;
 const app = express();
 const log = console.log;
@@ -36,8 +36,22 @@ const start = async () => {
     const dbConnect = await mongoose.connect(process.env.DB_CONNECTION_STRING);
     if (dbConnect) {
       log("Connected to database....");
-      app.listen(PORT, async () => {
+      const ComServer = app.listen(PORT, async () => {
         log("Server running on port ", PORT);
+      });
+      const socketIO = new Server(ComServer, {
+        cors: {
+          origin: ["http://localhost:5000", "http://localhost:3002"],
+        },
+      });
+
+      socketIO.on("connection", (socket) => {
+        console.log("Customer connected!", socket.id);
+
+        socket.on("order-placed", (order) => {
+          socketIO.emit("send-notifier", order);
+          console.log("New order received");
+        });
       });
     }
   } catch (e) {
