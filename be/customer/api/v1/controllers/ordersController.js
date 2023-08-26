@@ -1,15 +1,16 @@
 const Order = require("../model/Orders");
 const io = require("socket.io-client");
-let isConnected = false;
-
+// const { socket } = require("../../../customer");
 const createOrder = async (req, res) => {
+  const socket = io("http://localhost:5003");
+
   const order = req.body;
   try {
-    const socket = io("http://localhost:5003");
     const insertOrder = new Order({ ...order });
     const insertedOrder = await insertOrder.save();
     socket.on("connect", (s) => {
       socket.emit("order-placed", insertedOrder);
+      console.log("Connection established with ID: ", socket.id);
     });
 
     res.status(201).json(insertedOrder);

@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
-import io from "socket.io-client";
+import { SocketContextProvider } from "../../../context/SocketContext";
 const Orders = () => {
-  const socket = io("http://localhost:5003");
+  const { socket } = useContext(SocketContextProvider);
   const [newOrder, setNewOrders] = useState([]);
 
   socket.on("connect", (con) => {
-    console.log("Connected to server!");
+    // console.log("Connected to server!", socket.id);
     socket.on("send-notifier", (note) => {
-      setNewOrders([{ ...newOrder }, note]);
-      console.log("Update received!", newOrder);
+      setNewOrders((pre) => {
+        return pre.length === 0 ? [note] : [...pre, note];
+      });
     });
   });
   return (

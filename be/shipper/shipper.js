@@ -52,6 +52,9 @@ const start = async () => {
           socketIO.emit("send-notifier", order);
           console.log("New order received");
         });
+        socket.on("disconnect", () => {
+          console.log(`Customer with ID ${socket.id} is disconnected!`);
+        });
       });
     }
   } catch (e) {
