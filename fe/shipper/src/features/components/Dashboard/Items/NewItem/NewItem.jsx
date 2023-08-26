@@ -2,8 +2,7 @@ import React, { useContext, useState } from "react";
 import axios from "axios";
 import "./NewItem.css";
 import { ItemDisplayContextProvider } from "../../../../context/ItemDisplayContext";
-
-const POST_URL = "http://localhost:5003/api/v1/items";
+import { POST_URL } from "../../../../../config/config";
 
 const NewItem = ({ mode, data, title }) => {
   const { setActivePanel } = useContext(ItemDisplayContextProvider);

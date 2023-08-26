@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import "./ListItems.css";
 import { ItemDisplayContextProvider } from "../../../../context/ItemDisplayContext";
-const ITEM_URL = "http://localhost:5003/api/v1/items";
+import { ITEM_URL } from "../../../../../config/config";
 const ListItems = () => {
   const [items, setItems] = useState([]);
   const fetchItems = async () => {

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./ItemDetails.css";
 import axios from "axios";
 import { ItemDisplayContextProvider } from "../../../../context/ItemDisplayContext";
-const DELETE_URL = "http://localhost:5003/api/v1/items?id=";
+import { DELETE_URL } from "../../../../../config/config";
 const ItemDetails = ({ item }) => {
   const { setActivePanel, setSelectedItem } = useContext(
     ItemDisplayContextProvider
